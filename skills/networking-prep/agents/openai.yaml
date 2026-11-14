@@ -1,0 +1,4 @@
+interface:
+  display_name: "Networking Prep"
+  short_description: "Personalized event briefs, practice, and follow-ups"
+  default_prompt: "Use $networking-prep to prepare me for a networking event, using my background and attendee list."
