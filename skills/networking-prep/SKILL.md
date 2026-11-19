@@ -1,6 +1,6 @@
 ---
 name: networking-prep
-description: "Prepare for networking events using the user's resume, interests, goals, and attendee research. Create sourced person briefs and quick cards, rehearse hypothetical conversations, refresh contact research, record event notes, and draft personalized follow-ups. Use for networking preparation and continued work on its local profile or event records."
+description: "Prepare for networking events using the user's background, goals, and attendee research. Create sourced briefs and quick cards, rehearse conversations, record notes, draft follow-ups, and display a QR code for the user's LinkedIn profile on request."
 ---
 
 # Networking Prep
@@ -11,16 +11,22 @@ Help the user have informed, authentic conversations and build relationships. Pe
 
 Read [storage.md](references/storage.md) to resolve the local data root before reading or writing personal records. Use the configured root across chats; do not mistake a missing or inaccessible profile for permission to create a different one.
 
+In this skill context, route `new user`, a standalone `hello`, or `what do you do` to [intake.md](references/intake.md)'s new-user onboarding: create a separate profile, then ask exactly one onboarding question per turn and wait for the user's answer before asking the next. Collect background, LinkedIn URL, and event details in that order; ask event details individually as well. For `what do you do`, briefly explain the skill, then ask only the first onboarding question. Do not overwrite or reuse another user's profile.
+
+Route `share` or `share my info` to [intake.md](references/intake.md)'s LinkedIn QR workflow for the active profile. Display the QR image in chat; this does not authorize sending it or contacting anyone.
+
 Choose the requested activity and load only the relevant references:
 
 | Request | References and result |
 | --- | --- |
-| Prepare for an event | [intake.md](references/intake.md), then [research.md](references/research.md) and [briefing.md](references/briefing.md); create an event packet and quick cards |
+| New user onboarding (`new user`, `hello`, `what do you do`) | [intake.md](references/intake.md), with profile separation defined in [storage.md](references/storage.md); create a new profile and ask onboarding questions one at a time |
+| Share my info (`share`, `share my info`) | [intake.md](references/intake.md); display a QR code for the active profile's user-supplied LinkedIn URL |
+| Prepare for an event | [intake.md](references/intake.md), then [research.md](references/research.md) and [briefing.md](references/briefing.md); create the event packet, quick cards, and companion interactive HTML/PDF brief |
 | Update my background or interests | [intake.md](references/intake.md); update explicit profile facts and preferences |
 | Refresh someone or an event | [research.md](references/research.md), then [briefing.md](references/briefing.md); report changes and regenerate affected advice |
 | Practice a conversation | [rehearsal.md](references/rehearsal.md); use the existing person brief, or research only missing essentials |
-| Record what happened | [follow-through.md](references/follow-through.md); save actual interaction notes and commitments |
-| Draft a follow-up | [follow-through.md](references/follow-through.md); draft from actual notes and the user's stated intent |
+| Record what happened | [follow-through.md](references/follow-through.md); save actual interaction notes and commitments in Markdown and create a matching `interactions.html` visual companion |
+| Draft a follow-up or event thank-you | [follow-through.md](references/follow-through.md); draft from actual notes and the user's stated intent |
 
 Allow these activities through ordinary language; there is no command parser. Continue an existing event when context identifies it. Ask which event only when the choice matters.
 
@@ -28,7 +34,7 @@ Allow these activities through ordinary language; there is no command parser. Co
 
 - Ask for the outcome at each new event; retain the user's editable local profile and event history.
 - Research at balanced depth: roughly three to five useful sources and up to ten substantive recent posts per person, subject to usefulness and available preparation time.
-- Deliver a brief chat overview plus saved Markdown quick cards and detailed, sourced person briefs.
+- Deliver a brief chat overview plus saved Markdown quick cards, detailed sourced person briefs, and a standalone interactive event brief with a print-friendly PDF companion. Treat the Markdown records as the source and do not alter them only to format companion artifacts.
 - Practice one exchange at a time as a realistic, brief encounter, then give feedback. Save feedback; save full rehearsal transcripts only when requested.
 - Support post-event notes, promises, next steps, and draft follow-ups.
 

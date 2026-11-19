@@ -14,7 +14,8 @@ Create records as needed, not a tree of empty documents:
 
 ```text
 networking-data/
-  profile.md
+  profile.md                 # existing/default user
+  assets/                     # generated LinkedIn QR image when requested
   contacts/
     index.md
     person-0001.md
@@ -22,19 +23,30 @@ networking-data/
     2026-11-12-event-slug/
       event.md
       quick-cards.md
+      quick-cards.pdf           # visually styled companion to quick-cards.md
+      event-brief.html          # standalone interactive attendee brief
+      event-brief.pdf           # print-friendly companion attendee cards
       briefs/person-0001.md
       practice/person-0001-feedback.md
       interactions.md
+      interactions.html         # visual companion derived from interactions.md
       follow-ups.md
+  profiles/
+    index.md
+    profile-0001/
+      profile.md              # separate user
+      contacts/
+      events/
+      assets/                 # generated LinkedIn QR image when requested
 ```
 
-The existing `profile.md` starts unpopulated. Treat `Not supplied` as missing information. Never populate a profile from the computer's username, file paths, or illustrative examples.
+Treat `networking-data/profile.md` and its top-level contacts/events as the existing default user's records. Never overwrite or repurpose them for a different user. For each new user, create a separate `profiles/profile-NNNN/` directory with its own `profile.md`, `contacts/`, `events/`, and `assets/`; keep a `profiles/index.md` mapping generated profile IDs to paths and creation dates. Assign the next sequential ID without using a name, username, email, or other personal detail in the path. Create a minimal profile stub marked `intake pending` that includes `LinkedIn profile URL: Not supplied`, set that profile as active for the current conversation, and keep all of that user's later event and contact records inside the same profile directory. If multiple profiles exist and the active user is unclear, ask which profile to use before reading or writing personal records. Treat `Not supplied` as missing information. Never populate a profile from the computer's username, file paths, or illustrative examples.
 
 Use the following records:
 
 | Record | Required meaning |
 | --- | --- |
-| `profile.md` | Explicit user facts/preferences, provenance, experience levels, story bank, separate coaching suggestions, and last update date |
+| `profile.md` | Explicit user facts/preferences, LinkedIn profile URL and provenance, experience levels, story bank, separate coaching suggestions, and last update date |
 | `contacts/index.md` | Stable local ID, display name, confirmed identity anchor, known profile URLs, and record path; pending matches remain explicitly unresolved |
 | Contact record | Confirmed identity and anchors, reusable sourced findings, communication observations, evidence gaps, last research date |
 | `event.md` | Event context, goal, format, date/time zone if supplied, preparation constraints, attendee IDs or unresolved candidates, user priority, approach order with reasons, research coverage |
