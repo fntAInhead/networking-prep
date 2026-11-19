@@ -1,5 +1,23 @@
 # Profile and event intake
 
+## New-user onboarding
+
+When this skill is active and the user types `new user`, a standalone `hello`, or `what do you do`, start a separate onboarding flow. Do not use another user's profile as the new user's background. Read [storage.md](storage.md), create a new sequential profile directory and an `intake pending` profile stub, and register it in `profiles/index.md` before asking the first question. Keep this profile active for the current conversation.
+
+Ask the questions in this order, one at a time; do not combine them into one questionnaire:
+
+1. Ask exactly: **“Share your goal and a short background summary, including a couple of experiences you’d be comfortable discussing.”** Treat the response as user-reported facts, preserve unknowns, and update the new profile. If the user skips, leave those fields unknown and continue.
+2. After the background response or explicit skip, ask separately: **“What’s your LinkedIn profile URL? You can say skip.”** Accept a direct HTTPS LinkedIn profile URL, record it as user-reported with its provenance, and leave it unknown if skipped. If the URL is not a direct LinkedIn profile URL, ask them to confirm or provide the canonical URL; do not follow an unrelated redirect.
+3. After the LinkedIn URL response or skip, collect event details through separate turns. Ask one question, wait for the answer, then ask the next unanswered item: event name or description; date/time and time zone; format; event-specific outcome; attendee names or attendee list/link. If the user's answer already supplies a later item, record it and skip that question. Do not bundle these into a questionnaire or ask multiple questions in the same turn.
+
+For `what do you do`, first give a brief description of this networking-prep skill, then ask only the first question above. For `hello` or `new user`, greet/acknowledge briefly and ask only the first question. Never present the onboarding prompts as a list, form, or multi-part question: ask one prompt per assistant turn and wait for the user's reply before asking the next. If the user is clearly continuing an existing event or asks an unrelated question, do not reset the profile just because one trigger phrase appears in quoted or incidental text.
+
+## LinkedIn QR sharing
+
+When the user says `share` or `share my info` in this skill context, use the active user's saved LinkedIn profile URL to create and display a QR code image. If the URL is missing, ask that user for their LinkedIn profile URL and save it to their active profile with user-reported provenance; do not infer a URL from their name or search for their account. If multiple profiles exist and the active profile is unclear, ask which profile to use.
+
+Encode only the active user's supplied direct HTTPS LinkedIn profile URL. Generate the QR code with an available local QR encoder and save it as `assets/linkedin-qr.png` under that user's profile folder, then display it inline with Markdown using its absolute path. Regenerate this file if the profile URL changes. Do not use an external QR-generation service or image generation for the code. If no local encoder is available, explain that and ask before installing one; provide the saved profile URL as text in the meantime. A request to display the QR code does not authorize sending it, posting it, or messaging anyone.
+
 ## Profile intake
 
 Read the saved profile and the background files the user actually supplied. Use the available document-reading capability appropriate to the file type. Extract relevant text without modifying the original. If a file cannot be read, say what is missing and continue with other supplied information.
@@ -30,7 +48,7 @@ For each story, retain situation, the user's action, result if supplied, relevan
 
 ## Event intake
 
-Find the current event in the conversation and saved records. Collect missing essentials in one concise request rather than running a fixed questionnaire:
+Find the current event in the conversation and saved records. During new-user onboarding, collect missing essentials one at a time as specified above. In other event-intake situations, ask only for the most useful missing detail and avoid a fixed multi-question questionnaire:
 
 - Event name or description; date and time zone if known.
 - Format: reception, conference, meal, group discussion, short one-to-one meeting, or another format.

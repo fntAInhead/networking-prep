@@ -17,6 +17,10 @@ In Codex, open the cloned folder and ask:
 
 > Read and use the skill at `skills/networking-prep/SKILL.md` to prepare me for a networking event.
 
+For a separate user profile, say `new user` (or start with `hello` / `what do you do`). The skill creates an isolated profile and asks for background, LinkedIn URL, and event details in separate prompts.
+
+Later, say `share` or `share my info` to display a QR code for the active profile's LinkedIn page; it is shown locally and is not sent to anyone.
+
 Provide your resume or a short background summary, the event details and goal, and attendee names. Employers, roles, and profile links help resolve ambiguous names. The skill asks for missing information and creates your local profile as needed.
 
 For use across chats, ask Codex to install the `skills/networking-prep` folder in your personal skills directory. Configure `local-config.json` beside the installed `SKILL.md` with your own absolute local data directory, for example:
@@ -37,6 +41,7 @@ Replace the example path with your clone's `networking-data` directory or anothe
 - Update my background, interests, or preferred introduction.
 - Record what happened and what I promised after an event.
 - Draft a follow-up based on my actual meeting notes.
+- Draft brief thank-you emails to people I actually met; share what stood out and any genuine connection, or skip anyone I do not want to contact.
 
 Research uses available web search and, when available, the computer-use skill for your existing logged-in LinkedIn session. Source access may require your own account or manual excerpts. LinkedIn prohibits third-party automation and profile views may be visible; the skill explains the limits and supports a supplied-material fallback. Rehearsal personas are explicitly hypothetical and do not establish a real person's private views or personality.
 

@@ -1,4 +1,4 @@
 interface:
   display_name: "Networking Prep"
-  short_description: "Personalized event briefs, practice, and follow-ups"
+  short_description: "Personalized networking prep and LinkedIn profile QR codes"
   default_prompt: "Use $networking-prep to prepare me for a networking event, using my background and attendee list."

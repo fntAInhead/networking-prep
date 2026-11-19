@@ -32,16 +32,19 @@ Do not manufacture flattery or assume hiring, investment, referrals, friendship,
 
 ## Quick cards
 
-Save `quick-cards.md` as a compact event document, ordered by the user's priorities and the recommended approach order. Each card contains:
+Save `quick-cards.md` as a compact event document, ordered by the user's priorities and the recommended approach order. Create two companion artifacts in the same event folder: a self-contained `event-brief.html` and a polished `event-brief.pdf`. The HTML should support navigation between attendee briefs and useful local interactions such as persistent suggested-action checkboxes; it must work when opened locally without a server or external assets. The PDF should have a clear, print-friendly attendee card for each person, styled with a person header, highlighted objective, conversation prompts, and follow-up/action area. Both companions must be based on the existing event, quick-card, person-brief, and contact Markdown records, preserve their identity caveats and provenance, and never claim a conversation occurred unless actual interaction notes say so. Do not edit Markdown files just to format or enrich a companion artifact. Render and inspect every PDF page and open the HTML locally to verify navigation and state persistence before delivery.
 
-- **Name and role**, including uncertainty when relevant.
-- **Your objective** for this conversation.
-- **Opener** in one sentence.
-- **Two follow-up prompts** to listen for and build on.
-- **Personal connection** grounded in the user's actual experience, or a clearly labeled curiosity angle when none is known.
-- **Possible next step** suitable for the relationship.
+Keep the Markdown text and formatting unchanged when adding or regenerating these companions; if the user asks to change card content, update the Markdown deliberately and then regenerate affected companions from it.
 
-Aim for roughly 100-150 words per card; sources and detailed reasoning belong in the linked person brief. Link each card to its saved brief and preserve unresolved identity warnings. Keep an unresolved attendee entry short, with the clarification needed, rather than a guessed conversation plan.
+Make each Markdown card easy to scan at a glance, following this hierarchy:
+
+1. **Person header:** name, role/organization, and relevant event or relationship status. Include uncertainty where relevant.
+2. **Objective of meeting:** one concise, tailored outcome in a visually distinct callout.
+3. **Conversation opener (1 of N):** give 1–3 short, natural questions the user can ask this individual. Number them `1 of N`, etc., so the user can choose an idea. Prefer questions grounded in confirmed attendee information or event context; label a general curiosity question when identity or background is unresolved. Avoid presenting a multi-part interrogation as one question.
+4. **Personal connection:** a real bridge grounded in the user's stated experience, or a clearly labeled curiosity angle when no connection is known.
+5. **Useful next step:** one suitable, low-pressure action to take after the conversation.
+
+Use clear section labels and whitespace so the visual structure reads like a compact meeting dashboard. Do not invent meeting history, action items, relationship details, or profile facts just to fill a section. Aim for roughly 100–150 words per confirmed-person card; sources and detailed reasoning belong in the linked person brief. Link each card to its saved brief and preserve unresolved identity warnings. Keep an unresolved attendee entry short, with the clarification needed, rather than a guessed conversation plan. The 1–3 conversation questions belong on every confirmed-person card; unresolved entries can only use neutral event-context questions if clearly marked as generic.
 
 ## Event overview and refresh
 
